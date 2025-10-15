@@ -1,0 +1,29 @@
+#python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+*.egg-info/
+
+#data
+data/raw/*
+data/processed/*
+*.csv
+*.db
+*.sqlite
+
+# Secrets
+.env
+config.ini
+*.key
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
