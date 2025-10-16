@@ -1,6 +1,6 @@
-
 import os
 from dotenv import load_dotenv
+import getpass
 
 # Load environment variables
 load_dotenv()
@@ -13,14 +13,14 @@ class Config:
     DB_PORT = 5432
     DB_NAME = "property_data"
     DB_USER = "postgres"
-    DB_PASSWORD = os.getenv('DB_PASSWORD', 'yourpassword')
+    DB_PASSWORD = os.getenv('DB_PASSWORD', '202304')
     
     # Data paths
     RAW_DATA_PATH = "data/raw"
     PROCESSED_DATA_PATH = "data/processed"
     
     # Data processing config
-    REQUIRED_COLUMNS = ['price', 'suburb']  # 根据你下载的数据集调整
+    REQUIRED_COLUMNS = ['price', 'suburb']
     
     # Logging
     LOG_LEVEL = "INFO"
