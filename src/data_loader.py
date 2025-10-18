@@ -1,7 +1,7 @@
 import pandas as pd
 import logging
 from datetime import datetime
-from config import Config
+from src.config import Config
 
 logging.basicConfig(
     level = logging.INFO,

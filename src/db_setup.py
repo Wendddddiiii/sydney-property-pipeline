@@ -1,7 +1,7 @@
 import psycopg2
 from psycopg2 import sql
 import logging
-from config import Config
+from src.config import Config
 
 logging.basicConfig(
     level = logging.INFO,

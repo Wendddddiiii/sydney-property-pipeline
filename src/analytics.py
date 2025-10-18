@@ -1,5 +1,5 @@
 import logging
-from db_setup import DatabaseSetup
+from src.db_setup import DatabaseSetup
 import pandas as pd
 
 logging.basicConfig(level = logging.INFO)

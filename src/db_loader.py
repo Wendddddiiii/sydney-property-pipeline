@@ -2,8 +2,8 @@ import pandas as pd
 import psycopg2
 from psycopg2.extras import execute_values
 import logging
-from config import Config
-from db_setup import DatabaseSetup
+from src.config import Config
+from src.db_setup import DatabaseSetup
 
 logging.basicConfig(
     level = logging.INFO,
