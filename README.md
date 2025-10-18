@@ -17,4 +17,4 @@
 - Data loader implemented
 - PostgreSQL configured
 - 11,160 records loaded
-- Basic SQL queries working
+- Basic SQL queries working 
