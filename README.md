@@ -23,3 +23,8 @@ CSV Data → Python ETL → PostgreSQL → Airflow → Streamlit Dashboard
 - ✅ Airflow orchestration with 4-task DAG
 - ✅ Interactive dashboard with 6+ visualizations
 - ✅ Advanced analytics (price trends, suburb rankings)
+
+
+## 📊 Interactive Dashboard
+
+> [https://sydney-property-pipeline.streamlit.app/]
