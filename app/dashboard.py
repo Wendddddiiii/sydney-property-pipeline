@@ -3,11 +3,10 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime
-import sys
-import os
+import warnings
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from src.config import Config
+warnings.filterwarnings('ignore')
+
 
 st.set_page_config(
     page_title = "Sydney Property Market Dashboard",
