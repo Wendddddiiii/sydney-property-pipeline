@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-import psycopg2
 from datetime import datetime
 import sys
 import os
@@ -16,28 +15,36 @@ st.set_page_config(
     layout="wide"
 )
 
-@st.cache_resource
-def get_db_connection():
-    config = Config()
-    conn = psycopg2.connect(
-        host = config.DB_HOST,
-        port = config.DB_PORT,
-        database = config.DB_NAME,
-        user = config.DB_USER,
-        password = config.DB_PASSWORD
-    )
-    return conn 
+#@st.cache_resource
+#def get_db_connection():
+#    config = Config()
+#    conn = psycopg2.connect(
+#        host = config.DB_HOST,
+#        port = config.DB_PORT,
+#        database = config.DB_NAME,
+#        user = config.DB_USER,
+#        password = config.DB_PASSWORD
+#    )
+#    return conn 
 
-@st.cache_data(ttl=600)
+@st.cache_data
 def load_data():
-    conn = get_db_connection()
-    query = """
-    select price, suburb, num_bed, num_bath, num_parking, property_size, type, km_from_cbd, price_per_sqm, is_house, distance_category
-    from properties_processed where price is not NULL;    
-    """
-
-    df = pd.read_sql(query, conn)
-    return df
+    """Load data from CSV file"""
+    try:
+        # Use relative path for deployment
+        df = pd.read_csv('data/processed/properties_processed_latest.csv')
+        
+        # Convert date column if needed
+        if 'date_sold' in df.columns:
+            df['date_sold'] = pd.to_datetime(df['date_sold'], errors='coerce')
+        
+        return df
+    except FileNotFoundError:
+        st.error("Data file not found. Please check the data directory.")
+        return pd.DataFrame()
+    except Exception as e:
+        st.error(f"Error loading data: {e}")
+        return pd.DataFrame()
 
 def main():
     st.title("🏡 Sydney Property Market Analytics Dashboard")
